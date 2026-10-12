@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    flex-direction: column;
+    gap: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #5673e0);
+    color: white;
+    padding: 1.5rem;
+    min-height: 100vh;
+}
+
+body > h2{
+    color: white;
+    text-align: center;
+}
+
+#cityInput{
+    border-radius: 4px;
+    width: 250px;
+    height: 40px;
+    padding-left: 10px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+#searchBtn{
+    height: 40px;
+    border-radius: 4px;
+    font-size: 1rem;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    background-color: #263f9e;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#searchBtn:hover {
+    background-color: #192d78;
+    transform: translateY(-2px);
+}
+#searchBtn:active {
+    transform: scale(0.95); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  #searchBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#cityName{
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    overflow-wrap: anywhere ;
+}
+
+#tem{
+    font-size: 1.2rem;
+    padding-bottom: 1rem;
+    overflow-wrap: anywhere;
+}
+
+#feelsLike,
+#humidity,
+#windSpeed {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+#description{
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin-top: 20px;
+    text-transform: capitalize;
+}
+
+.weather{
+    background-color: lightblue;
+    color: darkslategray;
+    width: 100%;
+    max-width: 350px;
+    margin: 1.4rem auto;
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.weather:hover{
+    transform: translateY(-5px);
+}
+
+.searchBox{
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 400px;
+    justify-content: space-between;
+    align-items: center;
+}
+.searchBox input{
+    flex: 1;
+    min-width: 0;
+}
+
+
+@media (max-width: 480px) {
+    body {
+        padding: 1rem;
+    }
+
+    body > h2 {
+        font-size: 1.5rem;
+    }
+
+    #cityInput {
+        max-width: 100%;
+    }
+
+    .weather {
+        max-width: 100%;
+        margin: 0.5rem auto;
+    }
+    
+}
+.weather p {
+        line-height: 1.5;
+}
