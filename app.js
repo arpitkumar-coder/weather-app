@@ -21,7 +21,7 @@ searchBtn.addEventListener("click" ,async () => {
     status.innerText = "Loading weather...";
     searchBtn.disabled = true;
     try {
-        const geoURL = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1&language=en&format=json`;
+        const geoURL = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=10&language=en&format=json`;
         const response = await fetch(geoURL);
         if (!response.ok) {
         throw new Error("Failed to fetch city data");
@@ -35,9 +35,17 @@ searchBtn.addEventListener("click" ,async () => {
         return;
     }
 
-    const latitude = data.results[0].latitude;
-    const longitude = data.results[0].longitude;
-    const country = data.results[0].country;
+    // const latitude = data.results[0].latitude;
+    // const longitude = data.results[0].longitude;
+    // const country = data.results[0].country;
+
+        const cityResult =
+    data.results.find(place => place.country === "India") ||
+    data.results[0];
+
+    const latitude = cityResult.latitude;
+    const longitude = cityResult.longitude;
+    const country = cityResult.country;
     console.log("Country:", country);
     
     const weatherURL = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m`;
